@@ -31,8 +31,8 @@ A lightweight admin dashboard for managing customer support tickets, disputes, a
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/support-dashboard.git
-cd support-dashboard
+git clone https://github.com/arman-develops/shopricana.git
+cd shopricana
 ```
 
 ### 2. Install Dependencies
