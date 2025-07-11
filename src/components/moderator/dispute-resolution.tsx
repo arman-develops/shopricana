@@ -21,9 +21,30 @@ import {
 } from "lucide-react"
 
 export function DisputeResolution() {
-  const [selectedDispute, setSelectedDispute] = useState(null)
+  const [selectedDispute, setSelectedDispute] = useState<Dispute | null>(null)
 
-  const disputes = [
+
+  // ── Literal‑union helpers ──────────────────────────────
+  type DisputeType     = "refund" | "delivery" | "quality" | "billing";
+  type DisputeStatus   = "pending" | "investigating" | "resolved" | "escalated";
+  type DisputePriority = "low" | "medium" | "high";
+
+  // ── Main interface ─────────────────────────────────────
+  interface Dispute {
+    id:          string;           // e.g. "DSP‑001"
+    type:        DisputeType;
+    customer:    string;
+    merchant:    string;
+    orderNumber: string;
+    amount:      number;           // store in lowest currency unit if precision matters
+    status:      DisputeStatus;
+    priority:    DisputePriority;
+    created:     string;           // ISO‑8601 recommended; Date if you prefer
+    description: string;
+    evidence:    string[];         // file names / URLs
+  }
+
+  const disputes: Dispute[] = [
     {
       id: "DSP-001",
       type: "refund",

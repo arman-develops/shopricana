@@ -25,9 +25,28 @@ import {
 
 export function UserManagement() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedUser, setSelectedUser] = useState(null)
+  const [selectedUser, setSelectedUser] = useState<User | null>(null)
 
-  const users = [
+  // ─── Discrete string‑literal unions keep you safe ──────────────
+  type UserStatus = "active" | "inactive" | "banned" | "warned" | "suspended";
+  type UserRole   = "customer" | "moderator" | "admin";
+
+  // ─── Main shape ────────────────────────────────────────────────
+  interface User {
+    id:          number;
+    name:        string;
+    email:       string;
+    joinDate:    string;        // ISO‑8601 preferred, e.g. "2023-06-15"
+    lastActive:  string;        // "2 hours ago" or a timestamp—up to you
+    status:      UserStatus;
+    role:        UserRole;
+    orders:      number;
+    totalSpent:  number;        // use a money type / BigInt if you need cents safety
+    warnings:    number;
+    reputation:  number;        // 0–5 stars? clamp in UI
+  }
+
+  const users: User[] = [
     {
       id: 1,
       name: "John Smith",

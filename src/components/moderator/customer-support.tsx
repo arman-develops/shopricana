@@ -10,10 +10,31 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MessageSquare, Clock, User, Mail, Send, Paperclip, Star, Filter } from "lucide-react"
 
 export function CustomerSupport() {
-  const [selectedTicket, setSelectedTicket] = useState(null)
+  const [selectedTicket, setSelectedTicket] = useState<SupportTicket | null>(null)
   const [replyMessage, setReplyMessage] = useState("")
 
-  const supportTickets = [
+  // ── Literal unions for strong typing ───────────────────────
+  type TicketPriority = "low" | "normal" | "medium" | "high";
+  type TicketStatus   = "open" | "pending" | "resolved" | "closed";
+  type TicketCategory = "shipping" | "product" | "billing" | "account";
+
+  // ── Main interface ─────────────────────────────────────────
+  interface SupportTicket {
+    id:          string;               // e.g. "TKT-001"
+    customer:    string;
+    email:       string;
+    subject:     string;
+    priority:    TicketPriority;
+    status:      TicketStatus;
+    category:    TicketCategory;
+    created:     string;               // e.g. "2 hours ago" — or make this a Date
+    lastReply:   string;               // same format as `created`
+    messages:    number;               // number of message exchanges
+    rating:      number | null;        // optional user rating after resolution
+    orderNumber: string | null;        // may be unrelated to a specific order
+  }
+
+  const supportTickets: SupportTicket[] = [
     {
       id: "TKT-001",
       customer: "John Smith",
@@ -171,16 +192,18 @@ export function CustomerSupport() {
                       <span>{ticket.messages}</span>
                     </div>
                   </div>
-                  {ticket.rating && (
-                    <div className="flex items-center space-x-1 mt-2">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-3 w-3 ${i < ticket.rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
-                        />
-                      ))}
-                    </div>
-                  )}
+                  {
+                    typeof ticket.rating === "number" && (
+                      <div className="flex items-center space-x-1 mt-2">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-3 w-3 ${i < ticket.rating! ? "text-yellow-400 fill-current" : "text-gray-300"}`}
+                          />
+                        ))}
+                      </div>
+                    )
+                  }
                 </CardContent>
               </Card>
             ))}
