@@ -50,7 +50,7 @@ export function SystemAdminDashboard() {
           </div>
           <div className="flex items-center space-x-3">
             <div className="text-right">
-              <p className="font-medium text-white">Alex Rodriguez</p>
+              <p className="font-medium text-white">Lex Karanja</p>
               <p className="text-sm text-gray-400">System Administrator</p>
             </div>
             <div className="h-12 w-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold text-lg">

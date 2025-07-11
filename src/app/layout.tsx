@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/sonner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "EcomStore - Your One-Stop Shop",
+  title: "Shopricana - Your One-Stop Shop",
   description: "Discover amazing products at great prices with fast delivery",
 }
 

@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4">EcomStore</h3>
+            <h3 className="text-lg font-bold mb-4">Shopricana</h3>
             <p className="text-gray-300 mb-4">
               Your trusted online shopping destination for quality products at great prices.
             </p>
@@ -98,7 +98,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 EcomStore. All rights reserved.</p>
+          <p>&copy; 2025 Shopricana. All rights reserved.</p>
         </div>
       </div>
     </footer>

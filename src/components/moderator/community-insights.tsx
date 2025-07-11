@@ -33,25 +33,27 @@ export function CommunityInsights() {
     { type: "Reports", count: 45, trend: "down", change: "-15%" },
   ]
 
-  const topContributors = [
-    { name: "Alice Johnson", contributions: 156, rating: 4.9, badge: "Super Reviewer" },
-    { name: "Bob Smith", contributions: 134, rating: 4.8, badge: "Helpful Member" },
-    { name: "Carol Davis", contributions: 98, rating: 4.7, badge: "Active Contributor" },
-    { name: "David Wilson", contributions: 87, rating: 4.6, badge: "Community Helper" },
-  ]
+const topContributors = [
+  { name: "Wanjiku Njeri", contributions: 156, rating: 4.9, badge: "Super Reviewer" },
+  { name: "Kevin Otieno", contributions: 134, rating: 4.8, badge: "Helpful Member" },
+  { name: "Faith Kiprop", contributions: 98, rating: 4.7, badge: "Active Contributor" },
+  { name: "Brian Mwangi", contributions: 87, rating: 4.6, badge: "Community Helper" },
+];
 
-  const recentActivity = [
-    { action: "New review posted", user: "John Doe", item: "Wireless Headphones", time: "5 min ago", type: "review" },
-    { action: "Question answered", user: "Jane Smith", item: "Shipping Policy", time: "12 min ago", type: "help" },
-    { action: "Product rated", user: "Mike Johnson", item: "Smart Watch", time: "18 min ago", type: "rating" },
-    {
-      action: "Comment reported",
-      user: "Anonymous",
-      item: "Inappropriate content",
-      time: "25 min ago",
-      type: "report",
-    },
-  ]
+
+const recentActivity = [
+  { action: "New review posted", user: "James Mwangi", item: "Oraimo Wireless Earbuds", time: "5 min ago", type: "review" },
+  { action: "Question answered", user: "Achieng Atieno", item: "Return Policy", time: "12 min ago", type: "help" },
+  { action: "Product rated", user: "Brian Kiptoo", item: "Mika Smart Watch", time: "18 min ago", type: "rating" },
+  {
+    action: "Comment reported",
+    user: "Anonymous",
+    item: "Offensive language in comment",
+    time: "25 min ago",
+    type: "report",
+  },
+];
+
 
   const getActivityIcon = (type: string) => {
     switch (type) {

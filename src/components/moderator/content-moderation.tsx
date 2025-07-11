@@ -22,68 +22,70 @@ import {
 export function ContentModeration() {
   const [selectedItem, setSelectedItem] = useState(null)
 
-  const pendingReviews = [
-    {
-      id: 1,
-      type: "review",
-      product: "Wireless Headphones Pro",
-      author: "John Smith",
-      rating: 1,
-      content: "Terrible product, waste of money. Sound quality is awful and they broke after one day!",
-      reported: true,
-      reportReason: "Potentially fake review",
-      timestamp: "2 hours ago",
-      priority: "high",
-    },
-    {
-      id: 2,
-      type: "review",
-      product: "Smart Fitness Watch",
-      author: "Sarah Wilson",
-      rating: 5,
-      content: "Amazing watch! Love all the features and the battery life is incredible. Highly recommend!",
-      reported: false,
-      timestamp: "4 hours ago",
-      priority: "normal",
-    },
-    {
-      id: 3,
-      type: "comment",
-      product: "Organic Cotton T-Shirt",
-      author: "Mike Johnson",
-      content: "Does this come in other colors? Also, what's the return policy?",
-      reported: false,
-      timestamp: "6 hours ago",
-      priority: "low",
-    },
-  ]
+const pendingReviews = [
+  {
+    id: 1,
+    type: "review",
+    product: "Oraimo Wireless Earbuds",
+    author: "Kevin Otieno",
+    rating: 1,
+    content: "Terrible product. Sound is weak and it stopped working after a day. Not worth the price.",
+    reported: true,
+    reportReason: "Suspected fake review",
+    timestamp: "2 hours ago",
+    priority: "high",
+  },
+  {
+    id: 2,
+    type: "review",
+    product: "Mika Smart Watch",
+    author: "Faith Wanjiru",
+    rating: 5,
+    content: "I love it! Very accurate, long battery life, and synced well with my phone. Totally recommend.",
+    reported: false,
+    timestamp: "4 hours ago",
+    priority: "normal",
+  },
+  {
+    id: 3,
+    type: "comment",
+    product: "Organic Cotton Kikoi Shirt",
+    author: "Brian Kiprop",
+    content: "Do you have this in size XXL? And what’s the return policy like if it doesn’t fit?",
+    reported: false,
+    timestamp: "6 hours ago",
+    priority: "low",
+  },
+];
 
-  const reportedContent = [
-    {
-      id: 4,
-      type: "review",
-      product: "Professional Camera Lens",
-      author: "Anonymous User",
-      content: "This is spam content with inappropriate links and promotional material...",
-      reportReason: "Spam/Promotional content",
-      reportedBy: "Multiple users",
-      timestamp: "1 hour ago",
-      priority: "high",
-      status: "pending",
-    },
-    {
-      id: 5,
-      type: "image",
-      product: "Yoga Mat Premium",
-      author: "Lisa Garcia",
-      content: "Product image showing inappropriate content",
-      reportReason: "Inappropriate content",
-      reportedBy: "Customer",
-      timestamp: "3 hours ago",
-      priority: "medium",
-      status: "investigating",
-    },
-  ]
+
+const reportedContent = [
+  {
+    id: 4,
+    type: "review",
+    product: "Canon DSLR Lens",
+    author: "Anonymous User",
+    content: "Click this link to get cheap lenses! www.spamlink.ke...",
+    reportReason: "Spam/Promotional content",
+    reportedBy: "Multiple users",
+    timestamp: "1 hour ago",
+    priority: "high",
+    status: "pending",
+  },
+  {
+    id: 5,
+    type: "image",
+    product: "Yoga Mat – Nairobi Edition",
+    author: "Linet Auma",
+    content: "Image flagged for nudity during product demonstration",
+    reportReason: "Inappropriate content",
+    reportedBy: "Customer",
+    timestamp: "3 hours ago",
+    priority: "medium",
+    status: "investigating",
+  },
+];
+
 
   const getPriorityBadge = (priority: string) => {
     const config = {

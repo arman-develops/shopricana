@@ -41,7 +41,7 @@ export function Header() {
             <div className="h-8 w-8 bg-primary rounded-md flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">E</span>
             </div>
-            <span className="font-bold text-xl">EcomStore</span>
+            <span className="font-bold text-xl">Shopricana</span>
           </Link>
 
           {/* Desktop Navigation */}
