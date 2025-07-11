@@ -10,72 +10,73 @@ import Link from "next/link"
 // Mock tracking data
 const mockTrackingData = {
   orderId: "ORD-2024-001",
-  trackingNumber: "1Z999AA1234567890",
-  carrier: "UPS",
+  trackingNumber: "FC-KE-12345678",
+  carrier: "Fargo Courier",
   status: "delivered",
-  estimatedDelivery: "2024-01-18",
-  actualDelivery: "2024-01-17 3:45 PM",
-  currentLocation: "New York, NY",
+  estimatedDelivery: "2024-07-10",
+  actualDelivery: "2024-07-09 4:10 PM",
+  currentLocation: "Kisumu, Kenya",
   events: [
     {
-      date: "2024-01-17",
-      time: "3:45 PM",
+      date: "2024-07-09",
+      time: "4:10 PM",
       status: "Delivered",
-      location: "New York, NY 10001",
-      description: "Package delivered to front door. Signed by: J.DOE",
+      location: "Milimani, Kisumu",
+      description: "Package delivered to recipient. Signed by: B.OTIENO",
     },
     {
-      date: "2024-01-17",
-      time: "8:30 AM",
+      date: "2024-07-09",
+      time: "8:45 AM",
       status: "Out for Delivery",
-      location: "New York, NY",
-      description: "Package is out for delivery",
+      location: "Fargo Hub, Kisumu",
+      description: "Rider en route to deliver package",
     },
     {
-      date: "2024-01-17",
-      time: "6:00 AM",
+      date: "2024-07-08",
+      time: "6:20 PM",
       status: "Arrived at Facility",
-      location: "New York, NY",
-      description: "Package arrived at delivery facility",
+      location: "Fargo Hub, Kisumu",
+      description: "Package received at Kisumu dispatch center",
     },
     {
-      date: "2024-01-16",
-      time: "11:30 PM",
+      date: "2024-07-08",
+      time: "12:30 PM",
       status: "In Transit",
-      location: "Newark, NJ",
-      description: "Package is in transit to next facility",
+      location: "Kericho",
+      description: "Package on transit to Kisumu from Kericho stop",
     },
     {
-      date: "2024-01-16",
-      time: "2:15 PM",
+      date: "2024-07-08",
+      time: "8:00 AM",
       status: "In Transit",
-      location: "Philadelphia, PA",
-      description: "Package is in transit",
+      location: "Nakuru",
+      description: "Package departed Nakuru hub",
     },
     {
-      date: "2024-01-16",
-      time: "9:00 AM",
+      date: "2024-07-07",
+      time: "3:10 PM",
       status: "Shipped",
-      location: "Warehouse - Atlanta, GA",
-      description: "Package has been shipped",
+      location: "Fargo Warehouse - Nairobi",
+      description: "Package shipped from Nairobi warehouse",
     },
     {
-      date: "2024-01-15",
-      time: "2:15 PM",
+      date: "2024-07-07",
+      time: "10:15 AM",
       status: "Order Processed",
-      location: "Warehouse - Atlanta, GA",
-      description: "Order has been processed and prepared for shipment",
+      location: "Fargo Warehouse - Nairobi",
+      description: "Order processed and ready for shipment",
     },
   ],
 }
 
 type TrackOrderPageProps = {
-  params: {
-    orderId: string;
-  };
-};
+  params: Promise<{
+    orderId: string
+  }>
+}
 
 export default async function TrackOrderPage({ params }: TrackOrderPageProps) {
+  const { orderId } = await params
   const [tracking] = useState(mockTrackingData)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
@@ -119,7 +120,7 @@ export default async function TrackOrderPage({ params }: TrackOrderPageProps) {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <Link
-          href={`/orders/${params.orderId}`}
+          href={`/orders/${orderId}`}
           className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-4"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />

@@ -15,10 +15,17 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { addItem } = useCart()
+  const { addToCart } = useCart()
 
   const handleAddToCart = () => {
-    addItem(product)
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+      inStock: product.stock > 0, // Map stock to inStock boolean
+    })
     toast.success(`${product.name} added to cart!`)
   }
 
