@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Support Dashboard 🛍️🛠️
 
-## Getting Started
+A lightweight admin dashboard for managing customer support tickets, disputes, and user accounts in an e-commerce environment. Built with **React**, **Tailwind CSS**, and **shadcn/ui** components.
 
-First, run the development server:
+---
 
+## ✨ Features
+
+- 📋 View and manage customer support tickets
+- ⚠️ Track and resolve disputes (refunds, delivery, quality, billing)
+- 👤 User list with status, reputation, and spending summary
+- 📨 Ticket rating and messaging activity
+- 🎯 Priority and status indicators
+- 🧭 Clean, responsive UI with hover states and highlight effects
+
+---
+
+## 🧰 Tech Stack
+
+- **React** (w/ Vite or CRA)
+- **Tailwind CSS** for utility-first styling
+- **shadcn/ui** for accessible, themeable UI components
+- **TypeScript** for strict typing
+- **Radix UI** (via shadcn) for primitives like Checkbox
+- **Lucide-react** icons
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/yourusername/support-dashboard.git
+cd support-dashboard
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Start Dev Server
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
