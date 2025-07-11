@@ -75,7 +75,7 @@ type TrackOrderPageProps = {
   };
 };
 
-export default function TrackOrderPage({ params }: TrackOrderPageProps) {
+export default async function TrackOrderPage({ params }: TrackOrderPageProps) {
   const [tracking] = useState(mockTrackingData)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
