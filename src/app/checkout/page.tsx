@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,13 +8,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useCart } from "@/hooks/use-cart"
 import { CreditCard, Truck, MapPin, User } from "lucide-react"
+import { type CheckedState } from "@radix-ui/react-checkbox";
 import Link from "next/link"
 
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart } = useCart()
   const [paymentMethod, setPaymentMethod] = useState("card")
   const [shippingMethod, setShippingMethod] = useState("standard")
-  const [sameAsShipping, setSameAsShipping] = useState(true)
+  const [sameAsShipping, setSameAsShipping] = useState<CheckedState>(true)
 
   const subtotal = getTotalPrice()
   const tax = subtotal * 0.08
