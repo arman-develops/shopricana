@@ -1,3 +1,5 @@
+"use client"
+
 import { ProductCard } from "./product-card"
 import { useProducts } from "@/hooks/use-products"
 
