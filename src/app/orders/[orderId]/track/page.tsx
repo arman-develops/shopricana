@@ -69,7 +69,13 @@ const mockTrackingData = {
   ],
 }
 
-export default function TrackOrderPage({ params }: { params: { orderId: string } }) {
+type TrackOrderPageProps = {
+  params: {
+    orderId: string;
+  };
+};
+
+export default function TrackOrderPage({ params }: TrackOrderPageProps) {
   const [tracking] = useState(mockTrackingData)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
