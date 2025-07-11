@@ -22,6 +22,7 @@ import {
   Mail,
   Calendar,
   Activity,
+  XCircle,
 } from "lucide-react"
 
 export function UserRoleManagement() {
@@ -185,10 +186,16 @@ export function UserRoleManagement() {
             <Users className="h-5 w-5 text-cyan-400" />
             <span>User Management</span>
           </CardTitle>
-          <Button className="bg-cyan-600 hover:bg-cyan-700">
-            <UserPlus className="h-4 w-4 mr-2" />
-            Add User
-          </Button>
+          <div className="space-x-2">
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              <Shield className="h-4 w-4 mr-2" />
+              Add Moderator
+            </Button>
+            <Button className="bg-cyan-600 hover:bg-cyan-700">
+              <UserPlus className="h-4 w-4 mr-2" />
+              Add User
+            </Button>
+          </div>
         </CardHeader>
         <CardContent className="space-y-4">
           {/* Search and Filters */}
@@ -266,10 +273,16 @@ export function UserRoleManagement() {
                               <Edit className="h-4 w-4 mr-2" />
                               Edit User
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="text-gray-300 hover:bg-gray-700">
+                            <DropdownMenuItem className="text-blue-400 hover:bg-gray-700">
                               <Shield className="h-4 w-4 mr-2" />
-                              Change Role
+                              Promote to Moderator
                             </DropdownMenuItem>
+                            {user.role === "moderator" && (
+                              <DropdownMenuItem className="text-orange-400 hover:bg-gray-700">
+                                <XCircle className="h-4 w-4 mr-2" />
+                                Demote Moderator
+                              </DropdownMenuItem>
+                            )}
                             <DropdownMenuItem className="text-red-400 hover:bg-gray-700">
                               <Trash2 className="h-4 w-4 mr-2" />
                               Delete User
